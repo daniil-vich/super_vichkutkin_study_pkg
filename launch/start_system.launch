@@ -1,0 +1,4 @@
+<launch>
+    <node name="polynomial" pkg="super_vichkutkin_study_pkg" type="polynomial.py" output="screen"/>
+    <node name="summing" pkg="super_vichkutkin_study_pkg" type="summing.py" output="screen"/>
+</launch>
