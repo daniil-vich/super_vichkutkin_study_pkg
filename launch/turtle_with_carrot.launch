@@ -1,0 +1,9 @@
+<launch>   
+    <node pkg="turtlesim" type="turtlesim_node" name="simulator"/>    
+    <node pkg="turtlesim" type="turtle_teleop_key" name="keyboard" output="screen"/> 
+    <node name="turtle_carrot_broadcaster" pkg="super_vichkutkin_study_pkg" type="turtle_carrot_broadcaster.py" output="screen">
+        <param name="turtle_tf_name" type="string" value="cheripashka"/>
+        <remap from="input_pose" to="turtle1/pose"/>
+    </node>
+    <node pkg="rviz" type="rviz" name="rviz"/>
+</launch>
