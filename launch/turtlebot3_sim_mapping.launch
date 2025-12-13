@@ -1,0 +1,15 @@
+
+<launch>
+
+    <arg name="rviz" default="true" doc="Запускать Rviz с mapping конфигом" />
+
+    <include file="$(find super_vichkutkin_study_pkg)/launch/turtlebot3_sim_start.launch">
+        <!-- Отключаем стандартный Rviz, так как запустим свой -->
+        <arg name="rviz" value="false" />
+    </include>
+
+    <include file="$(find super_vichkutkin_study_pkg)/launch/turtlebot3_my_gmapping.launch" />
+    
+    <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" 
+          args="-d $(find super_vichkutkin_study_pkg)/rviz/sim_mapping.rviz" />
+</launch>

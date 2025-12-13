@@ -1,0 +1,14 @@
+
+<launch>
+  <arg name="model" default="waffle" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="multi_robot_name" default=""/>
+
+  <!-- Загружаем описание робота -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <!-- Публикуем состояние робота и TF -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+    <param name="tf_prefix" value="$(arg multi_robot_name)"/>
+  </node>
+</launch>

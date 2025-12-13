@@ -1,0 +1,13 @@
+<launch>
+     arg name="gazebo_gui" default="false" doc="Запускать ли графический интерфейс Gazebo (true/false)"/>
+    <include file="$(find super_vichkutkin_study_pkg)/launch/turtlebot3_world.launch">
+        <arg name="model" value="waffle" />
+        <arg name="x_pos" value="1.5" />
+        <arg name="y_pos" value="5.0" />
+        <arg name="z_pos" value="0.0" />
+        <arg name="gazebo_gui" value="$(arg gazebo_gui)" />
+    </include>
+    
+	<include file="$(find super_vichkutkin_study_pkg)/launch/turtlebot3_my_slam.launch" />
+ 	<include file="$(find super_vichkutkin_study_pkg)/launch/turtlebot3_my_move_base.launch" />
+</launch>
